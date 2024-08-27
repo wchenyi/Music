@@ -1,6 +1,6 @@
 const userAlbums = {
     '用户1': [
-        { id: 1, cover: "https://img.zcool.cn/community/01b3795d996936a801211d535390a2.jpg?imageMogr2/auto-orient/thumbnail/1280x%3e/sharpen/0.5/quality/100", title: "我最喜欢的音乐", artist: "Wangcy", link: "https://wchenyi.github.io/Heomusic" },
+        { id: 1, cover: "https://img.zcool.cn/community/01b3795d996936a801211d535390a2.jpg?imageMogr2/auto-orient/thumbnail/1280x%3e/sharpen/0.5/quality/100", title: "我最喜欢的音乐", artist: "Wangcy", link: "https://wchenyi.github.io/HeoMusic" },
         { id: 2, cover: "https://via.placeholder.com/160", title: "Album 2", artist: "Artist 2", link: "#" },
     ],
     '用户2': [
