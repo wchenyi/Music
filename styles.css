@@ -1,0 +1,171 @@
+:root {
+    --bg-light: #f3f4f6;
+    --text-light: #1f2937;
+    --bg-dark: #1f2937;
+    --text-dark: #f3f4f6;
+    --primary: #10B981;
+    --primary-hover: #059669;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #2d3748;
+    transition: left 0.3s;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.user-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    color: #a0aec0;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-button:hover, .user-button.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(45, 55, 72, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+h1 {
+    color: var(--primary);
+    margin: 0;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.album:hover {
+    background-color: rgba(45, 55, 72, 0.5);
+}
+
+.album img {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.album h3 {
+    margin: 0;
+    text-align: center;
+}
+
+.album p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #a0aec0;
+    text-align: center;
+}
