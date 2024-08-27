@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐专辑展示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebar" class="close-button">&times;</button>
+        <div class="sidebar-content">
+            <h2>用户</h2>
+            <button class="user-button active" data-user="用户1">用户1</button>
+            <button class="user-button" data-user="用户2">用户2</button>
+            <button class="user-button" data-user="用户3">用户3</button>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="nav-left">
+                <button id="openSidebar" class="menu-button">&#9776;</button>
+                <svg class="logo" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" fill="#10B981"/>
+                    <path d="M12 20C12 15.5817 15.5817 12 20 12C24.4183 12 28 15.5817 28 20C28 24.4183 24.4183 28 20 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="20" cy="20" r="4" fill="white"/>
+                </svg>
+                <h1>Music Album</h1>
+            </div>
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <h2 id="userTitle">用户1的专辑</h2>
+        <div id="albumGrid" class="album-grid"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
