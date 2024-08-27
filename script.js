@@ -1,6 +1,6 @@
 const userAlbums = {
     '用户1': [
-        { id: 1, cover: "https://img.zcool.cn/community/01b3795d996936a801211d535390a2.jpg?imageMogr2/auto-orient/thumbnail/1280x%3e/sharpen/0.5/quality/100", title: "我的音乐", artist: "Wangxy", link: "https://music.wangcy.site" },
+        { id: 1, cover: "https://img.zcool.cn/community/01b3795d996936a801211d535390a2.jpg?imageMogr2/auto-orient/thumbnail/1280x%3e/sharpen/0.5/quality/100", title: "Album 1", artist: "Artist 1", link: "https://music.wangcy.site" },
         { id: 2, cover: "https://via.placeholder.com/160", title: "Album 2", artist: "Artist 2", link: "#" },
     ],
     '用户2': [
@@ -49,11 +49,18 @@ function updateAlbums() {
             <p>${album.artist}</p>
         `;
         albumElement.addEventListener('click', () => {
-            console.log(`Navigating to album: ${album.title}, link: ${album.link}`);
-            // 在这里添加导航逻辑
+            navigateToAlbum(album);
         });
         albumGrid.appendChild(albumElement);
     });
+}
+
+function navigateToAlbum(album) {
+    if (album.link && album.link !== "#") {
+        window.location.href = album.link;
+    } else {
+        console.log(`暂无链接为专辑: ${album.title}`);
+    }
 }
 
 function updateActiveUserButton() {
