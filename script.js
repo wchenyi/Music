@@ -1,6 +1,6 @@
 const userAlbums = {
     '用户1': [
-        { id: 1, cover: "https://img.zcool.cn/community/01b3795d996936a801211d535390a2.jpg?imageMogr2/auto-orient/thumbnail/1280x%3e/sharpen/0.5/quality/100", title: "Album 1", artist: "Artist 1", link: "https://music.wangcy.site" },
+        { id: 1, cover: "https://via.placeholder.com/160", title: "Album 1", artist: "Artist 1", link: "https://music.wangcy.site" },
         { id: 2, cover: "https://via.placeholder.com/160", title: "Album 2", artist: "Artist 2", link: "#" },
     ],
     '用户2': [
@@ -37,10 +37,10 @@ function changeUser(user) {
     updateActiveUserButton();
 }
 
-function updateAlbums() {
+function updateAlbums(albums = userAlbums[currentUser]) {
     const albumGrid = document.getElementById('albumGrid');
     albumGrid.innerHTML = '';
-    userAlbums[currentUser].forEach(album => {
+    albums.forEach(album => {
         const albumElement = document.createElement('div');
         albumElement.className = 'album';
         albumElement.innerHTML = `
@@ -69,6 +69,25 @@ function updateActiveUserButton() {
     });
 }
 
+function toggleSearchBar() {
+    const searchBar = document.getElementById('searchBar');
+    searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+}
+
+function searchAlbums() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filteredAlbums = userAlbums[currentUser].filter(album => 
+        album.title.toLowerCase().includes(searchTerm) || 
+        album.artist.toLowerCase().includes(searchTerm)
+    );
+    updateAlbums(filteredAlbums);
+}
+
+function toggleAnnouncementModal() {
+    const modal = document.getElementById('announcementModal');
+    modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
+}
+
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     updateAlbums();
@@ -83,5 +102,19 @@ document.addEventListener('DOMContentLoaded', () => {
             changeUser(button.dataset.user);
             toggleSidebar();
         });
+    });
+
+    document.getElementById('searchButton').addEventListener('click', toggleSearchBar);
+    document.getElementById('searchInput').addEventListener('input', searchAlbums);
+
+    document.getElementById('announcementButton').addEventListener('click', toggleAnnouncementModal);
+    document.querySelector('.modal .close').addEventListener('click', toggleAnnouncementModal);
+
+    // 点击模态框外部关闭模态框
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('announcementModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 });
