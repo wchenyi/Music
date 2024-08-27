@@ -28,9 +28,35 @@
                 </svg>
                 <h1>Music Album</h1>
             </div>
+            <div class="nav-center">
+                <button id="searchButton">搜索</button>
+                <button id="announcementButton">公告</button>
+            </div>
             <button id="themeToggle" class="theme-toggle">🌙</button>
         </div>
     </nav>
+
+    <div id="searchBar" class="search-bar">
+        <input type="text" id="searchInput" placeholder="搜索专辑...">
+    </div>
+
+    <div id="announcementModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>公告</h2>
+            <div id="announcementContent">
+                <!-- 在这里添加公告内容 -->
+                <h3>最新更新</h3>
+                <ul>
+                    <li>新增搜索功能</li>
+                    <li>添加公告栏</li>
+                    <li>优化用户界面</li>
+                </ul>
+                <h3>即将推出</h3>
+                <p>我们正在开发新的个性化推荐功能，敬请期待！</p>
+            </div>
+        </div>
+    </div>
 
     <main>
         <h2 id="userTitle">用户1的专辑</h2>
